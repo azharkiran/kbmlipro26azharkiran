@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KBM-LIPRO26 — Portal Pembelajaran Azhar Kiran 2026</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #0f766e;
+      --primary-dark: #115e59;
+      --accent: #d97706;
+    }
+    body { background-color: #f8fafc; color: #0f172a; }
+    .navbar-brand { font-weight: 700; letter-spacing: 0.3px; }
+    .hero-box {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: #fff;
+      border-radius: 1rem;
+    }
+    .btn-accent {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .btn-accent:hover {
+      background-color: #b45309;
+      border-color: #b45309;
+      color: #fff;
+    }
+    .spa-view { display: none; }
+    .spa-view.active { display: block; }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="#beranda" data-view="beranda">
+        <i class="bi bi-mortarboard-fill text-warning me-2"></i>KBM-LIPRO26
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto gap-1" id="spaNav">
+          <li class="nav-item">
+            <a class="nav-link active" href="#beranda" data-view="beranda">Beranda</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#modul" data-view="modul">Modul Belajar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#ringkasan" data-view="ringkasan">Kirim Ringkasan</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#riwayat" data-view="riwayat">Riwayat <span class="badge bg-warning text-dark ms-1" id="riwayatCount">0</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container my-4">
+    <!-- VIEW 1: BERANDA -->
+    <section id="view-beranda" class="spa-view active">
+      <div class="hero-box p-4 p-md-5 mb-4 shadow-sm">
+        <span class="badge bg-warning text-dark mb-2">Azhar Kiran • 2026</span>
+        <h1 class="display-6 fw-bold mb-2">Portal Pembelajaran KBM-LIPRO26</h1>
+        <p class="lead mb-4 opacity-90">
+          Ruang belajar terstruktur, pencatatan ringkasan materi, dan pengiriman laporan KBM secara cepat tanpa muat ulang halaman.
+        </p>
+        <div class="d-flex flex-wrap gap-2">
+          <button class="btn btn-accent btn-lg nav-trigger" data-view="ringkasan">
+            <i class="bi bi-send-check me-1"></i> Isi Ringkasan KBM
+          </button>
+          <button class="btn btn-outline-light btn-lg nav-trigger" data-view="modul">
+            <i class="bi bi-journal-bookmark me-1"></i> Lihat Modul
+          </button>
+        </div>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+              <div class="text-teal fw-semibold small text-uppercase mb-1" style="color:var(--primary)">Tahap 01</div>
+              <h5 class="card-title fw-bold">Akses Materi & Modul</h5>
+              <p class="card-text text-muted small">Pelajari topik inti KBM-LIPRO26 dan tandai progres bacaan Anda secara langsung.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+              <div class="fw-semibold small text-uppercase mb-1" style="color:var(--primary)">Tahap 02</div>
+              <h5 class="card-title fw-bold">Ringkasan Terstruktur</h5>
+              <p class="card-text text-muted small">Catat poin utama pembelajaran dan kirimkan ke Google Form target dengan validasi otomatis.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+              <div class="fw-semibold small text-uppercase mb-1" style="color:var(--primary)">Tahap 03</div>
+              <h5 class="card-title fw-bold">Arsip Lokal Instan</h5>
+              <p class="card-text text-muted small">Setiap ringkasan yang dikirim tersimpan di riwayat browser agar mudah ditinjau kembali.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 2: MODUL -->
+    <section id="view-modul" class="spa-view">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="h4 fw-bold mb-0">Modul Pembelajaran KBM-LIPRO26</h2>
+        <span class="text-muted small" id="progressLabel">0 / 3 Modul Selesai</span>
+      </div>
+      <div class="progress mb-4" style="height: 10px;">
+        <div class="progress-bar bg-success" id="modulProgress" style="width: 0%;"></div>
+      </div>
+      <div class="row g-3" id="modulList"></div>
+    </section>
+
+    <!-- VIEW 3: FORM RINGKASAN -->
+    <section id="view-ringkasan" class="spa-view">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body p-4">
+          <h2 class="h4 fw-bold mb-1">Formulir Ringkasan KBM-LIPRO26</h2>
+          <p class="text-muted small mb-4">
+            Target Form: <code>1FAIpQLSdQ2qW4c6frvjfVn3bCY3txIcTvaSDi402PfWLqcR2tPUSBSw</code>
+          </p>
+
+          <form id="ringkasanForm" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Nama Lengkap <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="namaPeserta" required placeholder="Masukkan nama lengkap" />
+                <div class="invalid-feedback">Nama lengkap wajib diisi.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Topik / Sesi KBM <span class="text-danger">*</span></label>
+                <select class="form-select" id="topikKbm" required>
+                  <option value="">-- Pilih Topik --</option>
+                  <option value="Sesi 1: Orientasi & Konsep Dasar">Sesi 1: Orientasi & Konsep Dasar</option>
+                  <option value="Sesi 2: Praktik & Implementasi">Sesi 2: Praktik & Implementasi</option>
+                  <option value="Sesi 3: Evaluasi & Refleksi">Sesi 3: Evaluasi & Refleksi</option>
+                </select>
+                <div class="invalid-feedback">Silakan pilih topik KBM.</div>
+              </div>
+              <div class="col-12">
+                <label class="form-label fw-semibold">Ringkasan Materi <span class="text-danger">*</span></label>
+                <textarea class="form-control" id="isiRingkasan" rows="4" required placeholder="Tuliskan poin penting yang dipelajari hari ini..."></textarea>
+                <div class="invalid-feedback">Ringkasan materi wajib diisi.</div>
+              </div>
+              <div class="col-12">
+                <label class="form-label fw-semibold">Entry ID Google Form (Opsional)</label>
+                <input type="text" class="form-control" id="customEntry" placeholder="Contoh: entry.123456789=isiRingkasan (opsional)" />
+                <div class="form-text">Jika entry ID spesifik belum dipasang, data tetap tercatat di Riwayat dan membuka form target.</div>
+              </div>
+            </div>
+
+            <div class="mt-4 d-flex flex-wrap gap-2">
+              <button type="submit" class="btn btn-primary px-4" style="background-color:var(--primary);border-color:var(--primary)">
+                <i class="bi bi-check2-circle me-1"></i> Simpan & Kirim Ringkasan
+              </button>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdQ2qW4c6frvjfVn3bCY3txIcTvaSDi402PfWLqcR2tPUSBSw/viewform" target="_blank" rel="noopener" class="btn btn-outline-secondary">
+                <i class="bi bi-box-arrow-up-right me-1"></i> Buka Google Form Asli
+              </a>
+            </div>
+          </form>
+
+          <div id="submitAlert" class="alert alert-success mt-3 d-none" role="alert"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 4: RIWAYAT -->
+    <section id="view-riwayat" class="spa-view">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="h4 fw-bold mb-0">Riwayat Ringkasan Tersimpan</h2>
+        <button class="btn btn-sm btn-outline-danger" id="clearRiwayat">
+          <i class="bi bi-trash me-1"></i> Hapus Riwayat
+        </button>
+      </div>
+      <div id="riwayatContainer" class="row g-3"></div>
+    </section>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    $(function () {
+      const FORM_ACTION_URL =
+        "https://docs.google.com/forms/d/e/1FAIpQLSdQ2qW4c6frvjfVn3bCY3txIcTvaSDi402PfWLqcR2tPUSBSw/formResponse";
+
+      const modules = [
+        { id: "m1", title: "Modul 1: Pengantar KBM-LIPRO26", desc: "Memahami alur pembelajaran, target capaian, dan struktur sesi Azhar Kiran 2026.", done: false },
+        { id: "m2", title: "Modul 2: Penyusunan Ringkasan Efektif", desc: "Teknik merangkum inti materi secara padat, akurat, dan mudah ditinjau ulang.", done: false },
+        { id: "m3", title: "Modul 3: Evaluasi & Tindak Lanjut", desc: "Refleksi hasil belajar dan penerapan materi pada studi kasus nyata.", done: false }
+      ];
+
+      let riwayat = JSON.parse(localStorage.getItem("kbm_lipro26_riwayat") || "[]");
+
+      function switchView(viewName) {
+        $(".spa-view").removeClass("active");
+        $("#view-" + viewName).addClass("active");
+        $("#spaNav .nav-link").removeClass("active");
+        $('#spaNav .nav-link[data-view="' + viewName + '"]').addClass("active");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      $(document).on("click", "[data-view]", function (e) {
+        e.preventDefault();
+        const target = $(this).data("view");
+        if (target) switchView(target);
+      });
+
+      function renderModules() {
+        const $list = $("#modulList").empty();
+        let completed = 0;
+        modules.forEach((m) => {
+          if (m.done) completed++;
+          $list.append(`
+            <div class="col-md-4">
+              <div class="card border-0 shadow-sm h-100">
+                <div class="card-body d-flex flex-column justify-content-between">
+                  <div>
+                    <span class="badge ${m.done ? "bg-success" : "bg-secondary"} mb-2">${m.done ? "Selesai" : "Belum Selesai"}</span>
+                    <h5 class="card-title fw-bold">${m.title}</h5>
+                    <p class="card-text text-muted small">${m.desc}</p>
+                  </div>
+                  <button class="btn btn-sm ${m.done ? "btn-outline-success" : "btn-primary"} mt-3 toggle-modul" data-id="${m.id}">
+                    ${m.done ? "Tandai Belum Selesai" : "Tandai Selesai"}
+                  </button>
+                </div>
+              </div>
+            </div>
+          `);
+        });
+        const pct = Math.round((completed / modules.length) * 100);
+        $("#modulProgress").css("width", pct + "%").text(pct + "%");
+        $("#progressLabel").text(`${completed} / ${modules.length} Modul Selesai`);
+      }
+
+      $(document).on("click", ".toggle-modul", function () {
+        const id = $(this).data("id");
+        const item = modules.find((x) => x.id === id);
+        if (item) {
+          item.done = !item.done;
+          renderModules();
+        }
+      });
+
+      function renderRiwayat() {
+        $("#riwayatCount").text(riwayat.length);
+        const $box = $("#riwayatContainer").empty();
+        if (riwayat.length === 0) {
+          $box.html('<div class="col-12"><div class="alert alert-light border text-muted">Belum ada ringkasan tersimpan.</div></div>');
+          return;
+        }
+        riwayat.slice().reverse().forEach((r) => {
+          $box.append(`
+            <div class="col-md-6">
+              <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-start mb-1">
+                    <h6 class="fw-bold mb-0">${$("<div/>").text(r.nama).html()}</h6>
+                    <small class="text-muted">${r.waktu}</small>
+                  </div>
+                  <span class="badge bg-info text-dark mb-2">${$("<div/>").text(r.topik).html()}</span>
+                  <p class="card-text small mb-0">${$("<div/>").text(r.ringkasan).html()}</p>
+                </div>
+              </div>
+            </div>
+          `);
+        });
+      }
+
+      $("#ringkasanForm").on("submit", function (e) {
+        e.preventDefault();
+        const form = this;
+        if (!form.checkValidity()) {
+          $(form).addClass("was-validated");
+          return;
+        }
+
+        const entryData = {
+          nama: $("#namaPeserta").val().trim(),
+          topik: $("#topikKbm").val(),
+          ringkasan: $("#isiRingkasan").val().trim(),
+          waktu: new Date().toLocaleString("id-ID")
+        };
+
+        riwayat.push(entryData);
+        localStorage.setItem("kbm_lipro26_riwayat", JSON.stringify(riwayat));
+        renderRiwayat();
+
+        // Kirim latar belakang (no-cors) ke endpoint Google Form
+        $.ajax({
+          url: FORM_ACTION_URL,
+          type: "POST",
+          data: {
+            "nama_peserta": entryData.nama,
+            "topik_kbm": entryData.topik,
+            "ringkasan_materi": entryData.ringkasan
+          },
+          dataType: "xml",
+          xhrFields: { withCredentials: false },
+          crossDomain: true
+        }).always(function () {
+          $("#submitAlert")
+            .removeClass("d-none")
+            .html('<i class="bi bi-check-circle-fill me-1"></i> Ringkasan berhasil disimpan ke Riwayat dan dikirim ke endpoint Google Form.');
+          form.reset();
+          $(form).removeClass("was-validated");
+        });
+      });
+
+      $("#clearRiwayat").on("click", function () {
+        riwayat = [];
+        localStorage.removeItem("kbm_lipro26_riwayat");
+        renderRiwayat();
+      });
+
+      renderModules();
+      renderRiwayat();
+    });
+  </script>
+</body>
+</html>
