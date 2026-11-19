@@ -1,113 +1,826 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <meta name="description" content="A product of emergent.sh" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet" />
-        <!--
-        manifest.json provides metadata used when your web app is installed on a
-        user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-        -->
-        <!--
-        Notice the use of %PUBLIC_URL% in the tags above.
-        It will be replaced with the URL of the `public` folder during the build.
-        Only files inside the `public` folder can be referenced from the HTML.
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Belajar Ananda - Materi Pembelajaran</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1f2a44;--sun:#ffb703;--leaf:#2a9d8f;--coral:#ef476f;--sky:#e8f4fb;--cream:#fff8ea;}
+body{font-family:'Nunito',sans-serif;color:var(--ink);background:var(--cream);}
+h1,h2,h3,h4,.brand{font-family:'Baloo 2',cursive}
+.hero{background:var(--ink);color:#fff;padding:64px 0 90px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;background:var(--sun);opacity:.95}
+.hero:before{content:"";position:absolute;right:120px;bottom:-70px;width:150px;height:150px;border-radius:50%;background:var(--coral)}
+.hero .container{position:relative;z-index:2}
+.hero small{letter-spacing:.2em;color:var(--sun);font-weight:700}
+.hero h1{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;max-width:720px;line-height:1.1}
+.picker{position:sticky;top:0;z-index:1030;background:#fff;border-bottom:4px solid var(--sun);box-shadow:0 6px 20px rgba(31,42,68,.12)}
+.picker .form-select{border:2px solid var(--ink);border-radius:50px;font-weight:700;padding:.65rem 1.2rem;cursor:pointer}
+.picker .form-select:focus{box-shadow:0 0 0 .25rem rgba(255,183,3,.45);border-color:var(--ink)}
+.picker .hint{font-size:.9rem}
+.materi{padding:56px 0 24px;scroll-margin-top:110px}
+.materi .num{display:inline-flex;width:56px;height:56px;border-radius:16px;background:var(--sun);color:var(--ink);align-items:center;justify-content:center;font:800 1.8rem 'Baloo 2';transform:rotate(-6deg);flex:none}
+.materi:nth-of-type(even) .num{background:var(--leaf);color:#fff}
+.materi h2{font-size:clamp(1.5rem,3.2vw,2.2rem);font-weight:800;margin:0}
+.panel{background:#fff;border:2px solid var(--ink);border-radius:20px;padding:24px;box-shadow:6px 6px 0 var(--ink);height:100%}
+.panel h3{font-size:1.2rem;font-weight:700;color:var(--coral)}
+.arab{font-family:'Amiri',serif;font-size:1.9rem;line-height:2.4;direction:rtl;text-align:right}
+.latin{font-style:italic;color:#4a5878}
+.arti{color:#2b6b61;font-size:.95rem}
+.ayat-no{font-family:'Nunito';font-size:.8rem;background:var(--sky);border-radius:50px;padding:2px 10px;direction:ltr;display:inline-block;margin-left:6px;vertical-align:middle}
+.video-slot{aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:var(--sky);border:2px dashed var(--ink);display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;color:#4a5878}
+.video-slot iframe{width:100%;height:100%;border:0}
+.video-slot.filled{border:0;background:#000;padding:0}
+.sub{font-weight:800;background:var(--ink);color:#fff;display:inline-block;border-radius:50px;padding:4px 16px;font-size:.95rem;margin:6px 0 12px}
+.backtop{position:fixed;right:18px;bottom:18px;z-index:1040;border-radius:50%;width:52px;height:52px;background:var(--coral);color:#fff;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);display:none}
+footer{background:var(--ink);color:#fff;padding:28px 0;margin-top:56px}
+.doa-item{border-bottom:1px dashed #c9cfdc;padding:14px 0}.doa-item:last-child{border:0}
+body{padding-top:var(--nav-h,64px)}
+#mainNav{background:var(--ink);border-bottom:4px solid var(--sun);z-index:1050}
+#mainNav .navbar-brand{font-family:'Baloo 2',cursive;font-weight:800;color:#fff;font-size:1.35rem}
+#mainNav .navbar-brand i{color:var(--sun)}
+#mainNav .nav-link{color:#dfe5f3;font-weight:700;font-size:.82rem;letter-spacing:.02em;padding:.55rem .8rem;border-radius:50px;margin:0 2px;transition:background-color .2s,color .2s}
+#mainNav .nav-link:hover{background:rgba(255,255,255,.12);color:#fff}
+#mainNav .nav-link.active{background:var(--sun);color:var(--ink)}
+#mainNav .navbar-toggler{border-color:rgba(255,255,255,.5)}
+#mainNav .navbar-toggler-icon{filter:invert(1)}
+.page{display:none}
+.page.active{display:block;animation:fadeUp .45s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.level-head{background:var(--ink);color:#fff;padding:44px 0 40px;position:relative;overflow:hidden}
+.level-head:after{content:"";position:absolute;right:-40px;top:-50px;width:190px;height:190px;border-radius:50%;background:var(--sun)}
+.level-head .container{position:relative;z-index:2}
+.level-head .chip{display:inline-block;background:var(--coral);color:#fff;font-weight:800;border-radius:50px;padding:3px 14px;font-size:.8rem;letter-spacing:.08em}
+.level-head h1{font-size:clamp(1.6rem,4vw,2.8rem);font-weight:800;margin:10px 0 6px}
+.level-head.l2:after{background:var(--leaf)}
+.level-head.l3:after{background:var(--coral)}
+.level-card{display:block;text-decoration:none;color:var(--ink);background:#fff;border:2px solid var(--ink);border-radius:22px;padding:26px;box-shadow:6px 6px 0 var(--ink);height:100%;transition:transform .2s,box-shadow .2s;cursor:pointer}
+.level-card:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--ink);color:var(--ink)}
+.level-card .ico{width:64px;height:64px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:1.9rem;color:#fff;margin-bottom:14px;transform:rotate(-5deg)}
+.level-card h3{font-size:1.3rem;font-weight:800}
+.step-no{width:44px;height:44px;border-radius:50%;background:var(--sun);display:flex;align-items:center;justify-content:center;font:800 1.3rem 'Baloo 2';flex:none;border:2px solid var(--ink)}
+.table-vocab th{background:var(--ink);color:#fff;font-size:.85rem}
+.table-vocab td{vertical-align:middle}
+.accordion-button:not(.collapsed){background:var(--sky);color:var(--ink)}
+.accordion-button{font-weight:700}
+.nav-pills .nav-link{color:var(--ink);font-weight:700}
+.nav-pills .nav-link.active{background:var(--ink);color:#fff}
+.dialog{background:var(--sky);border-radius:12px;padding:12px 16px;margin-bottom:10px}
+.res-link{display:flex;align-items:center;gap:10px;border:2px solid var(--ink);border-radius:14px;padding:10px 14px;background:#fff;margin-bottom:10px;font-weight:700}
+.note{font-size:.85rem;color:#6a7690}
+</style>
+</head>
+<body>
 
-        Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-        work correctly both with client-side routing and a non-root public URL.
-        Learn how to configure a non-root public URL by running `npm run build`.
-        -->
-        <title>Emergent | Fullstack App</title>
-        <script>window.addEventListener("error",function(e){if(e.error instanceof DOMException&&e.error.name==="DataCloneError"&&e.message&&e.message.includes("PerformanceServerTiming")){e.stopImmediatePropagation();e.preventDefault()}},true);</script>
-        <script src="https://assets.emergent.sh/scripts/emergent-main.js"></script>
-    </head>
-    <body>
-        <noscript>You need to enable JavaScript to run this app.</noscript>
-        <div id="root"></div>
-        <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+<nav class="navbar navbar-expand-xl fixed-top" id="mainNav" data-testid="main-navbar">
+  <div class="container-fluid px-lg-4">
+    <a class="navbar-brand" href="#beranda" data-page="beranda" data-testid="nav-brand"><i class="bi bi-book-half me-1"></i>Belajar Ananda</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Buka menu" data-testid="nav-toggler"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-xl-center">
+        <li class="nav-item"><a class="nav-link" href="#beranda" data-page="beranda" data-testid="nav-beranda">Beranda</a></li>
+        <li class="nav-item"><a class="nav-link" href="#tk" data-page="tk" data-testid="nav-tk">USIA TK - SD AWAL (KLS. RENDAH)</a></li>
+        <li class="nav-item"><a class="nav-link" href="#smp" data-page="smp" data-testid="nav-smp">USIA SD AKHIR - SMP</a></li>
+        <li class="nav-item"><a class="nav-link" href="#sma" data-page="sma" data-testid="nav-sma">USIA SMA - PERGURUAN TINGGI</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about" data-page="about" data-testid="nav-about">ABOUT</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+<!-- ============ BERANDA ============ -->
+<div class="page" id="beranda" data-title="Beranda" data-testid="page-beranda">
+  <header class="hero">
+    <div class="container">
+      <small>SELAMAT DATANG DI RUANG BELAJAR</small>
+      <h1 class="mt-2" data-testid="home-title">Belajar Menyenangkan untuk <span style="color:var(--sun)">Setiap Usia</span></h1>
+      <p class="lead mt-3 mb-4" style="max-width:600px">Tartil, azan, kaligrafi, bahasa Arab &amp; Inggris, syarhil, khutbah, pidato dan banyak lagi. Pilih jenjang Ananda, lalu pilih materi yang ingin dipelajari hari ini.</p>
+      <a class="btn btn-warning btn-lg rounded-pill fw-bold px-4" href="#tk" data-page="tk" data-testid="home-start-btn">Mulai Belajar <i class="bi bi-arrow-right ms-1"></i></a>
+    </div>
+  </header>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-        <script>
-            !(function (t, e) {
-                var o, n, p, r;
-                e.__SV ||
-                    ((window.posthog = e),
-                    (e._i = []),
-                    (e.init = function (i, s, a) {
-                        function g(t, e) {
-                            var o = e.split(".");
-                            2 == o.length && ((t = t[o[0]]), (e = o[1])),
-                                (t[e] = function () {
-                                    t.push(
-                                        [e].concat(
-                                            Array.prototype.slice.call(
-                                                arguments,
-                                                0,
-                                            ),
-                                        ),
-                                    );
-                                });
-                        }
-                        ((p = t.createElement("script")).type =
-                            "text/javascript"),
-                            (p.crossOrigin = "anonymous"),
-                            (p.async = !0),
-                            (p.src =
-                                s.api_host.replace(
-                                    ".i.posthog.com",
-                                    "-assets.i.posthog.com",
-                                ) + "/static/array.js"),
-                            (r =
-                                t.getElementsByTagName(
-                                    "script",
-                                )[0]).parentNode.insertBefore(p, r);
-                        var u = e;
-                        for (
-                            void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
-                                u.people = u.people || [],
-                                u.toString = function (t) {
-                                    var e = "posthog";
-                                    return (
-                                        "posthog" !== a && (e += "." + a),
-                                        t || (e += " (stub)"),
-                                        e
-                                    );
-                                },
-                                u.people.toString = function () {
-                                    return u.toString(1) + ".people (stub)";
-                                },
-                                o =
-                                    "init me ws ys ps bs capture je Di ks register register_once register_for_session unregister unregister_for_session Ps getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Es $s createPersonProfile Is opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing Ss debug xs getPageViewId captureTraceFeedback captureTraceMetric".split(
-                                        " ",
-                                    ),
-                                n = 0;
-                            n < o.length;
-                            n++
-                        )
-                            g(u, o[n]);
-                        e._i.push([i, s, a]);
-                    }),
-                    (e.__SV = 1));
-            })(document, window.posthog || []);
-            posthog.init("phc_DbsPb39SRc8z3EiQ6Dhj6ikv4H4rTKcht9d4sZSesceP", {
-                api_host: "https://ap.emergent.sh",
-                person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well,
-                session_recording: {
-                    recordCrossOriginIframes: true,
-                    capturePerformance: false,
-                },
-            });
-        </script>
-    </body>
+  <main class="container py-5">
+    <h2 class="brand fw-bold mb-4" style="font-size:1.8rem">Pilih Jenjang Belajar</h2>
+    <div class="row g-4">
+      <div class="col-md-6 col-xl-4"><a class="level-card" href="#tk" data-page="tk" data-testid="home-card-tk">
+        <div class="ico" style="background:var(--sun);color:var(--ink)"><i class="bi bi-emoji-smile-fill"></i></div>
+        <h3>USIA TK - SD AWAL</h3><div class="fw-bold text-secondary mb-2">(KLS. RENDAH)</div>
+        <p>Belajar tartil, azan, iqamah, nasyid, mewarnai, hafalan Juz Amma, doa harian, kaligrafi dan peragaan shalat.</p>
+        <span class="fw-bold"><span data-count="tk"></span> materi <i class="bi bi-arrow-right"></i></span></a></div>
+      <div class="col-md-6 col-xl-4"><a class="level-card" href="#smp" data-page="smp" data-testid="home-card-smp">
+        <div class="ico" style="background:var(--leaf)"><i class="bi bi-translate"></i></div>
+        <h3>USIA SD AKHIR - SMP</h3><div class="fw-bold text-secondary mb-2">(KLS. TINGGI &amp; MENENGAH)</div>
+        <p>Tilawah, syarhil &amp; fahmil Quran, bahasa dasar 4 bahasa, belajar bahasa Arab dan Inggris, menggambar.</p>
+        <span class="fw-bold"><span data-count="smp"></span> materi <i class="bi bi-arrow-right"></i></span></a></div>
+      <div class="col-md-6 col-xl-4"><a class="level-card" href="#sma" data-page="sma" data-testid="home-card-sma">
+        <div class="ico" style="background:var(--coral)"><i class="bi bi-mic-fill"></i></div>
+        <h3>USIA SMA - PERGURUAN TINGGI</h3><div class="fw-bold text-secondary mb-2">(REMAJA &amp; DEWASA MUDA)</div>
+        <p>Khutbah, debat 4 bahasa, MC/protokol, pidato analitis, syarhil, kaligrafi, tahfizh dan doa harian.</p>
+        <span class="fw-bold"><span data-count="sma"></span> materi <i class="bi bi-arrow-right"></i></span></a></div>
+    </div>
+
+    <h2 class="brand fw-bold mt-5 mb-4" style="font-size:1.8rem">Cara Belajar</h2>
+    <div class="row g-4">
+      <div class="col-md-4"><div class="d-flex gap-3"><div class="step-no">1</div><div><h3 class="h5 fw-bold">Pilih jenjang</h3><p class="mb-0">Klik menu jenjang usia di bagian atas halaman.</p></div></div></div>
+      <div class="col-md-4"><div class="d-flex gap-3"><div class="step-no">2</div><div><h3 class="h5 fw-bold">Pilih materi</h3><p class="mb-0">Buka daftar pilihan materi, halaman langsung menggulir ke materi tersebut.</p></div></div></div>
+      <div class="col-md-4"><div class="d-flex gap-3"><div class="step-no">3</div><div><h3 class="h5 fw-bold">Belajar &amp; berlatih</h3><p class="mb-0">Baca teks, tonton video, lalu ulangi bersama guru atau orang tua.</p></div></div></div>
+    </div>
+  </main>
+</div>
+
+<!-- ============ TK ============ -->
+<div class="page" id="tk" data-title="USIA TK - SD AWAL (KLS. RENDAH)" data-testid="page-tk">
+  <header class="level-head"><div class="container">
+    <span class="chip">JENJANG 1</span>
+    <h1 data-testid="page-title">MATERI YANG INGIN DI PELAJARI <span style="color:var(--sun)">(USIA TK - SD AWAL)</span></h1>
+    <p class="mb-0 lead" style="max-width:620px">Pilihlah salah satu materi berikut ini yang ingin Ananda pelajari pada pertemuan hari ini.</p>
+  </div></header>
+  <div class="picker"><div class="container py-3"><div class="row g-2 align-items-center">
+    <div class="col-lg-4 fw-bold brand"><i class="bi bi-hand-index-thumb-fill me-1" style="color:var(--coral)"></i> Pilih materi hari ini</div>
+    <div class="col-lg-8"><select class="form-select materi-select" aria-label="Pilih materi" data-testid="materi-select-tk"></select></div>
+  </div></div></div>
+  <main class="container">
+    <section data-tpl="tartil" data-num="1" data-title="TARTIL / TAHFIZH" data-label="TARTIL"></section>
+    <section data-tpl="azan" data-num="2" data-title="AZAN"></section>
+    <section data-tpl="iqamah" data-num="3" data-title="IQAMAH"></section>
+    <section data-tpl="nasyid" data-num="4" data-title="NASYID / QASIDAH"></section>
+    <section data-tpl="mewarnai" data-num="5" data-title="BELAJAR SENI MEWARNAI"></section>
+    <section data-tpl="iqrar" data-num="6" data-title="IQRAR dan PUITISASI"></section>
+    <section data-tpl="juzamma" data-num="7" data-title="HAFALAN JUZ AMMA"></section>
+    <section data-tpl="doa" data-num="8" data-title="DOA HARIAN"></section>
+    <section data-tpl="kaligrafi" data-num="9" data-title="KALIGRAFI DASAR"></section>
+    <section data-tpl="shalat" data-num="10" data-title="LAFAZH dan PERAGAAN SHALAT"></section>
+  </main>
+</div>
+
+<!-- ============ SMP ============ -->
+<div class="page" id="smp" data-title="USIA SD AKHIR - SMP" data-testid="page-smp">
+  <header class="level-head l2"><div class="container">
+    <span class="chip">JENJANG 2</span>
+    <h1 data-testid="page-title-smp">MATERI YANG INGIN DI PELAJARI <span style="color:var(--sun)">(USIA SD AKHIR - SMP)</span></h1>
+    <p class="mb-0 lead" style="max-width:620px">Pilihlah salah satu materi berikut ini yang ingin Ananda pelajari pada pertemuan hari ini.</p>
+  </div></header>
+  <div class="picker"><div class="container py-3"><div class="row g-2 align-items-center">
+    <div class="col-lg-4 fw-bold brand"><i class="bi bi-hand-index-thumb-fill me-1" style="color:var(--coral)"></i> Pilih materi hari ini</div>
+    <div class="col-lg-8"><select class="form-select materi-select" aria-label="Pilih materi" data-testid="materi-select-smp"></select></div>
+  </div></div></div>
+  <main class="container">
+    <section data-tpl="tilawah" data-num="1" data-title="TILAWAH" data-label="TILAWAH"></section>
+    <section data-tpl="tartil" data-num="2" data-title="TARTIL / TAHFIZH" data-label="TARTIL"></section>
+    <section data-tpl="syarhil1" data-num="3" data-title="SYARHIL QURAN I" data-label="SYARHIL QURAN I"></section>
+    <section data-tpl="syarhil2" data-num="4" data-title="SYARHIL QURAN II (FULL)" data-label="SYARHIL QURAN II"></section>
+    <section data-tpl="fahmil" data-num="5" data-title="FAHMIL QURAN" data-label="FAHMIL QURAN"></section>
+    <section data-tpl="bahasa" data-num="6" data-title="BELAJAR BAHASA (ARAB DAN INGGRIS)" data-label="BELAJAR BAHASA"></section>
+    <section data-tpl="bahasadasar" data-num="7" data-title="BAHASA DASAR: KOSAKATA DASAR (BENDA SEKITAR) DALAM 4 BAHASA" data-label="BAHASA DASAR"></section>
+    <section data-tpl="menggambar" data-num="8" data-title="BELAJAR MENGGAMBAR" data-label="MENGGAMBAR"></section>
+    <section data-tpl="juzamma" data-num="9" data-title="HAFALAN JUZ AMMA"></section>
+    <section data-tpl="doa" data-num="10" data-title="DOA HARIAN"></section>
+  </main>
+</div>
+
+<!-- ============ SMA ============ -->
+<div class="page" id="sma" data-title="USIA SMA - PERGURUAN TINGGI" data-testid="page-sma">
+  <header class="level-head l3"><div class="container">
+    <span class="chip">JENJANG 3</span>
+    <h1 data-testid="page-title-sma">MATERI YANG INGIN DI PELAJARI <span style="color:var(--sun)">(USIA SMA - PERGURUAN TINGGI)</span></h1>
+    <p class="mb-0 lead" style="max-width:620px">Pilihlah salah satu materi berikut ini yang ingin Ananda pelajari pada pertemuan hari ini.</p>
+  </div></header>
+  <div class="picker"><div class="container py-3"><div class="row g-2 align-items-center">
+    <div class="col-lg-4 fw-bold brand"><i class="bi bi-hand-index-thumb-fill me-1" style="color:var(--coral)"></i> Pilih materi hari ini</div>
+    <div class="col-lg-8"><select class="form-select materi-select" aria-label="Pilih materi" data-testid="materi-select-sma"></select></div>
+  </div></div></div>
+  <main class="container">
+    <section data-tpl="tartil" data-num="1" data-title="TARTIL / TAHFIZH" data-label="TARTIL"></section>
+    <section data-tpl="kaligrafi" data-num="2" data-title="KALIGRAFI DASAR"></section>
+    <section data-tpl="syarhil1" data-num="3" data-title="SYARHIL QURAN I" data-label="SYARHIL QURAN I"></section>
+    <section data-tpl="syarhil2" data-num="4" data-title="SYARHIL QURAN II (FULL)" data-label="SYARHIL QURAN II"></section>
+    <section data-tpl="khutbah" data-num="5" data-title="KHUTBAH" data-label="KHUTBAH"></section>
+    <section data-tpl="doa" data-num="6" data-title="DOA HARIAN"></section>
+    <section data-tpl="debat" data-num="7" data-title="DEBAT BAHASA (ARAB, INGGRIS, INDONESIA DAN ACEH)" data-label="DEBAT BAHASA"></section>
+    <section data-tpl="mc" data-num="8" data-title="MC / PROTOKOL" data-label="MC / PROTOKOL"></section>
+    <section data-tpl="pidato" data-num="9" data-title="PIDATO ANALITIS" data-label="PIDATO ANALITIS"></section>
+  </main>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<div class="page" id="about" data-title="ABOUT" data-testid="page-about">
+  <header class="level-head"><div class="container">
+    <span class="chip">TENTANG KAMI</span>
+    <h1>About <span style="color:var(--sun)">Belajar Ananda</span></h1>
+  </div></header>
+  <main class="container py-5">
+    <div class="row g-4">
+      <div class="col-lg-7"><div class="panel">
+        <h3>Tentang Program</h3>
+        <p>Belajar Ananda adalah ruang belajar daring yang membantu anak dan remaja mempelajari keterampilan keagamaan, bahasa, dan seni secara bertahap sesuai jenjang usia. Materi disusun sederhana, disertai teks dan video agar mudah diulang di rumah maupun di kelas.</p>
+        <h3 class="mt-4">Visi</h3>
+        <p>Menumbuhkan generasi yang cinta Al-Qur'an, berakhlak mulia, percaya diri berbicara di depan umum, serta mampu berkomunikasi dalam beberapa bahasa.</p>
+        <h3 class="mt-4">Jenjang Belajar</h3>
+        <ul class="mb-0">
+          <li><strong>USIA TK - SD AWAL (KLS. RENDAH)</strong> — dasar ibadah, hafalan, dan seni.</li>
+          <li><strong>USIA SD AKHIR - SMP</strong> — tilawah, syarhil, fahmil, dan bahasa.</li>
+          <li><strong>USIA SMA - PERGURUAN TINGGI</strong> — khutbah, debat, MC, dan pidato.</li>
+        </ul>
+      </div></div>
+      <div class="col-lg-5"><div class="panel">
+        <h3>Kontak</h3>
+        <p class="mb-2"><i class="bi bi-envelope-fill me-2" style="color:var(--coral)"></i>info@belajarananda.example</p>
+        <p class="mb-2"><i class="bi bi-telephone-fill me-2" style="color:var(--coral)"></i>+62 000-0000-0000</p>
+        <p class="mb-3"><i class="bi bi-geo-alt-fill me-2" style="color:var(--coral)"></i>Alamat lembaga</p>
+        <p class="note mb-0">Data kontak di atas adalah contoh dan dapat diganti sesuai kebutuhan.</p>
+      </div></div>
+    </div>
+  </main>
+</div>
+
+<footer><div class="container text-center brand">Semangat belajar, Ananda! <i class="bi bi-stars" style="color:var(--sun)"></i></div></footer>
+<button class="backtop" id="backTop" aria-label="Kembali ke atas" data-testid="back-to-top"><i class="bi bi-arrow-up"></i></button>
+
+<template id="tpl-tartil"><div class="row g-4">
+    <div class="col-lg-7"><div class="panel">
+      <h3>a. Teks Contoh Tahfizh QS Al-Baqarah Ayat 1-10</h3>
+      <div class="arab">
+        <div>الٓمٓ <span class="ayat-no">1</span></div>
+        <div>ذَٰلِكَ ٱلْكِتَـٰبُ لَا رَيْبَ ۛ فِيهِ ۛ هُدًى لِّلْمُتَّقِينَ <span class="ayat-no">2</span></div>
+        <div>ٱلَّذِينَ يُؤْمِنُونَ بِٱلْغَيْبِ وَيُقِيمُونَ ٱلصَّلَوٰةَ وَمِمَّا رَزَقْنَـٰهُمْ يُنفِقُونَ <span class="ayat-no">3</span></div>
+        <div>وَٱلَّذِينَ يُؤْمِنُونَ بِمَآ أُنزِلَ إِلَيْكَ وَمَآ أُنزِلَ مِن قَبْلِكَ وَبِٱلْـَٔاخِرَةِ هُمْ يُوقِنُونَ <span class="ayat-no">4</span></div>
+        <div>أُو۟لَـٰٓئِكَ عَلَىٰ هُدًى مِّن رَّبِّهِمْ ۖ وَأُو۟لَـٰٓئِكَ هُمُ ٱلْمُفْلِحُونَ <span class="ayat-no">5</span></div>
+        <div>إِنَّ ٱلَّذِينَ كَفَرُوا۟ سَوَآءٌ عَلَيْهِمْ ءَأَنذَرْتَهُمْ أَمْ لَمْ تُنذِرْهُمْ لَا يُؤْمِنُونَ <span class="ayat-no">6</span></div>
+        <div>خَتَمَ ٱللَّهُ عَلَىٰ قُلُوبِهِمْ وَعَلَىٰ سَمْعِهِمْ ۖ وَعَلَىٰٓ أَبْصَـٰرِهِمْ غِشَـٰوَةٌ ۖ وَلَهُمْ عَذَابٌ عَظِيمٌ <span class="ayat-no">7</span></div>
+        <div>وَمِنَ ٱلنَّاسِ مَن يَقُولُ ءَامَنَّا بِٱللَّهِ وَبِٱلْيَوْمِ ٱلْـَٔاخِرِ وَمَا هُم بِمُؤْمِنِينَ <span class="ayat-no">8</span></div>
+        <div>يُخَـٰدِعُونَ ٱللَّهَ وَٱلَّذِينَ ءَامَنُوا۟ وَمَا يَخْدَعُونَ إِلَّآ أَنفُسَهُمْ وَمَا يَشْعُرُونَ <span class="ayat-no">9</span></div>
+        <div>فِى قُلُوبِهِم مَّرَضٌ فَزَادَهُمُ ٱللَّهُ مَرَضًا ۖ وَلَهُمْ عَذَابٌ أَلِيمٌۢ بِمَا كَانُوا۟ يَكْذِبُونَ <span class="ayat-no">10</span></div>
+      </div>
+    </div></div>
+    <div class="col-lg-5"><div class="panel">
+      <h3>b. Video Tahfizh Surat Al-Baqarah</h3>
+      <div class="sub">Ayat 1 - 5</div>
+      <div class="video-slot" data-title="Video Tahfizh Al-Baqarah ayat 1-5" data-src=""></div>
+      <div class="sub mt-4">Ayat 6 - 10</div>
+      <div class="video-slot" data-title="Video Tahfizh Al-Baqarah ayat 6-10" data-src=""></div>
+    </div></div>
+  </div></template>
+<template id="tpl-azan"><div class="row g-4">
+    <div class="col-lg-7"><div class="panel">
+      <h3>a. Teks Azan, Jawab Azan serta Artinya</h3>
+      <table class="table align-middle mb-0">
+        <thead><tr><th class="text-end">Lafaz Azan</th><th>Arti</th><th class="text-end">Jawaban</th></tr></thead>
+        <tbody>
+          <tr><td class="arab fs-5">اللهُ أَكْبَرُ اللهُ أَكْبَرُ (2x)</td><td class="arti">Allah Maha Besar</td><td class="arab fs-5">اللهُ أَكْبَرُ اللهُ أَكْبَرُ</td></tr>
+          <tr><td class="arab fs-5">أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللهُ (2x)</td><td class="arti">Aku bersaksi tiada Tuhan selain Allah</td><td class="arab fs-5">أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللهُ</td></tr>
+          <tr><td class="arab fs-5">أَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللهِ (2x)</td><td class="arti">Aku bersaksi Muhammad utusan Allah</td><td class="arab fs-5">أَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللهِ</td></tr>
+          <tr><td class="arab fs-5">حَيَّ عَلَى الصَّلَاةِ (2x)</td><td class="arti">Marilah shalat</td><td class="arab fs-5">لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللهِ</td></tr>
+          <tr><td class="arab fs-5">حَيَّ عَلَى الْفَلَاحِ (2x)</td><td class="arti">Marilah menuju kemenangan</td><td class="arab fs-5">لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللهِ</td></tr>
+          <tr><td class="arab fs-5">اللهُ أَكْبَرُ اللهُ أَكْبَرُ</td><td class="arti">Allah Maha Besar</td><td class="arab fs-5">اللهُ أَكْبَرُ اللهُ أَكْبَرُ</td></tr>
+          <tr><td class="arab fs-5">لَا إِلَهَ إِلَّا اللهُ</td><td class="arti">Tiada Tuhan selain Allah</td><td class="arab fs-5">لَا إِلَهَ إِلَّا اللهُ</td></tr>
+        </tbody>
+      </table>
+      <p class="small mt-3 mb-0">Azan Subuh ditambah setelah "Hayya 'alal falah": <span class="arab fs-5">الصَّلَاةُ خَيْرٌ مِنَ النَّوْمِ</span> (2x) — "Shalat lebih baik daripada tidur".</p>
+    </div></div>
+    <div class="col-lg-5"><div class="panel">
+      <h3>b. Video Azan</h3>
+      <div class="video-slot" data-title="Video Azan" data-src=""></div>
+    </div></div>
+  </div></template>
+<template id="tpl-iqamah"><div class="row g-4">
+    <div class="col-lg-7"><div class="panel">
+      <h3>a. Teks Iqamah</h3>
+      <div class="arab">
+        <div>اللهُ أَكْبَرُ اللهُ أَكْبَرُ</div>
+        <div>أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللهُ</div>
+        <div>أَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللهِ</div>
+        <div>حَيَّ عَلَى الصَّلَاةِ</div>
+        <div>حَيَّ عَلَى الْفَلَاحِ</div>
+        <div>قَدْ قَامَتِ الصَّلَاةُ قَدْ قَامَتِ الصَّلَاةُ</div>
+        <div>اللهُ أَكْبَرُ اللهُ أَكْبَرُ</div>
+        <div>لَا إِلَهَ إِلَّا اللهُ</div>
+      </div>
+      <p class="arti mb-0">Arti "Qad qaamatis shalaah": Shalat telah didirikan.</p>
+    </div></div>
+    <div class="col-lg-5"><div class="panel">
+      <h3>b. Video Iqamah</h3>
+      <div class="video-slot" data-title="Video Iqamah" data-src=""></div>
+    </div></div>
+  </div></template>
+<template id="tpl-nasyid"><div class="row g-4">
+    <div class="col-lg-7"><div class="panel">
+      <h3>a. Contoh Qasidah</h3>
+      <p class="mb-1"><strong>Judul :</strong> <span id="qasidahJudul" class="text-secondary">(judul qasidah ditentukan oleh guru)</span></p>
+      <p class="small text-secondary mb-0">Tips: dengarkan terlebih dahulu, lalu ikuti lirik perlahan dengan nada yang riang dan suara yang jelas.</p>
+    </div></div>
+    <div class="col-lg-5"><div class="panel">
+      <h3>b. Video Contoh Qasidah</h3>
+      <div class="video-slot" data-title="Video contoh Qasidah" data-src=""></div>
+    </div></div>
+  </div></template>
+<template id="tpl-mewarnai"><div class="panel mb-4">
+    <h3># DASAR SENI LUKIS</h3>
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="sub">-1. MEWARNAI</div>
+        <h4 class="h6 fw-bold">a. Cara Mewarnai dari Dasar</h4>
+        <ul><li>Siapkan pensil warna / krayon dan gambar sederhana.</li><li>Mulai dari tepi gambar, warnai searah dan rapat.</li><li>Jangan melewati garis tepi.</li><li>Gunakan satu warna dahulu hingga rata.</li></ul>
+        <div class="video-slot" data-title="Video cara mewarnai dari dasar" data-src=""></div>
+        <h4 class="h6 fw-bold mt-4">b. Cara Mewarnai Lanjutan</h4>
+        <ul><li>Padukan dua warna (gradasi): terang ke gelap.</li><li>Beri bayangan agar gambar tampak hidup.</li><li>Pilih warna latar yang serasi.</li></ul>
+        <div class="video-slot" data-title="Video cara mewarnai lanjutan" data-src=""></div>
+      </div>
+      <div class="col-lg-6">
+        <div class="sub">-2. MENGGAMBAR</div>
+        <h4 class="h6 fw-bold">a. Cara Menggambar dari Dasar</h4>
+        <ul><li>Mulai dari bentuk dasar: lingkaran, segitiga, persegi.</li><li>Gabungkan bentuk menjadi benda (rumah, masjid, bunga).</li><li>Tebalkan garis akhir, hapus garis bantu.</li></ul>
+        <div class="video-slot" data-title="Video cara menggambar dari dasar" data-src=""></div>
+        <h4 class="h6 fw-bold mt-4">b. Cara Menggambar Lanjutan</h4>
+        <ul><li>Perhatikan perbandingan ukuran benda.</li><li>Tambahkan detail dan latar (pohon, awan, matahari).</li><li>Latih arsiran untuk bayangan.</li></ul>
+        <div class="video-slot" data-title="Video cara menggambar lanjutan" data-src=""></div>
+      </div>
+    </div>
+  </div></template>
+<template id="tpl-iqrar"><div class="row g-4">
+    <div class="col-lg-7"><div class="panel">
+      <h3>a. Contoh Teks</h3>
+      <p class="fw-bold mb-1">Iqrar (Ikrar) Anak Muslim</p>
+      <p class="mb-3">Aku anak muslim yang taat,<br>Beriman kepada Allah dan Rasul-Nya,<br>Rajin shalat, berbakti kepada orang tua,<br>Hormat kepada guru, dan sayang kepada sesama.<br>Aku bangga menjadi anak Indonesia yang berakhlak mulia.</p>
+      <p class="fw-bold mb-1">Contoh Puisi</p>
+      <p class="mb-0"><em>Ibuku<br>Ibu, engkaulah pelita hidupku,<br>Doamu mengiringi setiap langkahku,<br>Terima kasih, Ibu, atas kasih sayangmu,<br>Semoga Allah menjagamu selalu.</em></p>
+    </div></div>
+    <div class="col-lg-5"><div class="panel">
+      <h3>b. Video Contoh Puitisasi</h3>
+      <div class="video-slot" data-title="Video contoh puitisasi" data-src=""></div>
+    </div></div>
+  </div></template>
+<template id="tpl-juzamma"><div class="row g-4">
+    <div class="col-lg-7"><div class="panel">
+      <h3>Daftar Surat Juz 30 (Juz Amma)</h3>
+      <div class="row row-cols-1 row-cols-md-2 small juz-list" ></div>
+    </div></div>
+    <div class="col-lg-5"><div class="panel">
+      <h3>VIDEO BELAJAR HAFALAN JUZ AMMA</h3>
+      <div class="video-slot" data-title="Video belajar hafalan Juz Amma" data-src=""></div>
+    </div></div>
+  </div></template>
+<template id="tpl-doa"><div class="row g-4">
+    <div class="col-lg-7"><div class="panel">
+      <h3>a. Teks Bacaan Doa Sehari-hari</h3>
+      <div class="doa-item"><strong>Sebelum makan</strong>
+        <div class="arab fs-4">اللَّهُمَّ بَارِكْ لَنَا فِيمَا رَزَقْتَنَا وَقِنَا عَذَابَ النَّارِ</div>
+        <div class="latin">Allahumma baarik lanaa fiimaa razaqtanaa wa qinaa 'adzaaban naar.</div>
+        <div class="arti">Ya Allah, berkahilah rezeki kami dan jauhkan kami dari siksa neraka.</div></div>
+      <div class="doa-item"><strong>Sesudah makan</strong>
+        <div class="arab fs-4">الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مِنَ الْمُسْلِمِينَ</div>
+        <div class="latin">Alhamdulillaahil ladzii ath'amanaa wa saqaanaa wa ja'alanaa minal muslimiin.</div>
+        <div class="arti">Segala puji bagi Allah yang telah memberi kami makan dan minum serta menjadikan kami muslim.</div></div>
+      <div class="doa-item"><strong>Sebelum tidur</strong>
+        <div class="arab fs-4">بِاسْمِكَ اللَّهُمَّ أَحْيَا وَبِاسْمِكَ أَمُوتُ</div>
+        <div class="latin">Bismika allahumma ahyaa wa bismika amuut.</div>
+        <div class="arti">Dengan nama-Mu ya Allah aku hidup dan dengan nama-Mu aku mati.</div></div>
+      <div class="doa-item"><strong>Bangun tidur</strong>
+        <div class="arab fs-4">الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ</div>
+        <div class="latin">Alhamdulillaahil ladzii ahyaanaa ba'da maa amaatanaa wa ilaihin nusyuur.</div>
+        <div class="arti">Segala puji bagi Allah yang menghidupkan kami setelah mematikan kami, dan kepada-Nya kami kembali.</div></div>
+      <div class="doa-item"><strong>Masuk kamar mandi / WC</strong>
+        <div class="arab fs-4">اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْخُبُثِ وَالْخَبَائِثِ</div>
+        <div class="latin">Allahumma innii a'uudzu bika minal khubutsi wal khabaa-its.</div>
+        <div class="arti">Ya Allah, aku berlindung kepada-Mu dari setan laki-laki dan perempuan.</div></div>
+      <div class="doa-item"><strong>Keluar kamar mandi / WC</strong>
+        <div class="arab fs-4">غُفْرَانَكَ</div>
+        <div class="latin">Ghufraanaka.</div>
+        <div class="arti">Aku mohon ampunan-Mu.</div></div>
+      <div class="doa-item"><strong>Untuk kedua orang tua</strong>
+        <div class="arab fs-4">رَبِّ اغْفِرْ لِي وَلِوَالِدَيَّ وَارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا</div>
+        <div class="latin">Rabbighfirlii wa liwaalidayya warhamhumaa kamaa rabbayaanii shaghiiraa.</div>
+        <div class="arti">Ya Tuhanku, ampunilah aku dan kedua orang tuaku, sayangilah mereka seperti mereka menyayangiku di waktu kecil.</div></div>
+      <div class="doa-item"><strong>Keluar rumah</strong>
+        <div class="arab fs-4">بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ</div>
+        <div class="latin">Bismillaahi tawakkaltu 'alallaah, laa haula wa laa quwwata illaa billaah.</div>
+        <div class="arti">Dengan nama Allah, aku bertawakal kepada Allah; tiada daya dan kekuatan kecuali dengan pertolongan Allah.</div></div>
+    </div></div>
+    <div class="col-lg-5"><div class="panel">
+      <h3>b. Video Kumpulan Doa Sehari-hari</h3>
+      <div class="video-slot" data-title="Video kumpulan doa sehari-hari" data-src=""></div>
+    </div></div>
+  </div></template>
+<template id="tpl-kaligrafi"><div class="row g-4">
+    <div class="col-lg-6"><div class="panel">
+      <h3>-# MODEL KALIGRAFI ADA 4</h3>
+      <ul class="mb-0"><li>a. Kaligrafi Naskah</li><li>b. Kaligrafi Hiasan Mushaf</li><li>c. Kaligrafi Kontemporer</li><li>d. Kaligrafi Dekorasi</li></ul>
+    </div></div>
+    <div class="col-lg-6"><div class="panel">
+      <h3>-# DASAR SENI KALIGRAFI</h3>
+      <ul class="mb-0">
+        <li><strong>a. Kaligrafi Naskah</strong> — tulisan baku, jelas, dan mudah dibaca (seperti tulisan mushaf).</li>
+        <li><strong>b. Kaligrafi Kontemporer</strong> — gaya bebas, ekspresif, memadukan warna dan bentuk modern.</li>
+        <li><strong>c. Kaligrafi Hiasan Mushaf</strong> — tulisan dengan ornamen hias pada mushaf.</li>
+        <li><strong>d. Kaligrafi Dekorasi</strong> — tulisan indah untuk pajangan dan hiasan ruangan.</li>
+      </ul>
+    </div></div>
+    <div class="col-lg-6"><div class="panel">
+      <h3>-# ALAT-ALAT YANG DIPERLUKAN UNTUK BELAJAR</h3>
+      <ul class="mb-0">
+        <li><strong>a. Kaligrafi Naskah:</strong> pensil, spidol kaligrafi / pena kalam, kertas bergaris.</li>
+        <li><strong>b. Kaligrafi Kontemporer:</strong> kuas, cat air/akrilik, kanvas atau kertas gambar.</li>
+        <li><strong>c. Kaligrafi Hiasan Mushaf:</strong> pena, tinta, pensil warna, penggaris.</li>
+        <li><strong>d. Kaligrafi Dekorasi:</strong> spidol, cat, papan/kain/kertas karton.</li>
+      </ul>
+    </div></div>
+    <div class="col-lg-6"><div class="panel">
+      <h3>-# CARA PRAKTIK KALIGRAFI DASAR HURUF HIJAIYAH</h3>
+      <div class="sub">a. Video Cara Menulis Kaligrafi untuk Pemula</div>
+      <div class="video-slot mb-3" data-title="Video cara menulis kaligrafi untuk pemula" data-src=""></div>
+      <div class="sub">b. Video Cara Menulis Tulisan Arab yang Bagus 1</div>
+      <div class="video-slot mb-3" data-title="Video cara menulis tulisan Arab yang bagus 1" data-src=""></div>
+      <div class="sub">c. Video Cara Menulis Tulisan Arab yang Bagus 2</div>
+      <div class="video-slot" data-title="Video cara menulis tulisan Arab yang bagus 2" data-src=""></div>
+    </div></div>
+  </div></template>
+<template id="tpl-shalat"><div class="row g-4">
+    <div class="col-lg-7"><div class="panel">
+      <h3>Teks Lafaz Shalat</h3>
+      <div class="doa-item"><strong>Takbiratul Ihram</strong><div class="arab fs-4">اللهُ أَكْبَرُ</div><div class="latin">Allaahu akbar.</div></div>
+      <div class="doa-item"><strong>Doa Iftitah</strong><div class="arab fs-4">اللهُ أَكْبَرُ كَبِيرًا وَالْحَمْدُ لِلَّهِ كَثِيرًا وَسُبْحَانَ اللهِ بُكْرَةً وَأَصِيلًا</div><div class="latin">Allaahu akbar kabiiraa wal hamdu lillaahi katsiiraa wa subhaanallaahi bukratan wa ashiilaa.</div></div>
+      <div class="doa-item"><strong>Al-Fatihah</strong><div class="arab">بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ ﴿١﴾ ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَـٰلَمِينَ ﴿٢﴾ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ ﴿٣﴾ مَـٰلِكِ يَوْمِ ٱلدِّينِ ﴿٤﴾ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ ﴿٥﴾ ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ ﴿٦﴾ صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ ﴿٧﴾</div></div>
+      <div class="doa-item"><strong>Rukuk</strong><div class="arab fs-4">سُبْحَانَ رَبِّيَ الْعَظِيمِ وَبِحَمْدِهِ</div><div class="latin">Subhaana rabbiyal 'azhiimi wa bihamdih.</div></div>
+      <div class="doa-item"><strong>I'tidal</strong><div class="arab fs-4">سَمِعَ اللهُ لِمَنْ حَمِدَهُ &nbsp; رَبَّنَا لَكَ الْحَمْدُ</div><div class="latin">Sami'allaahu liman hamidah. Rabbanaa lakal hamd.</div></div>
+      <div class="doa-item"><strong>Sujud</strong><div class="arab fs-4">سُبْحَانَ رَبِّيَ الْأَعْلَى وَبِحَمْدِهِ</div><div class="latin">Subhaana rabbiyal a'laa wa bihamdih.</div></div>
+      <div class="doa-item"><strong>Duduk di antara dua sujud</strong><div class="arab fs-4">رَبِّ اغْفِرْ لِي وَارْحَمْنِي وَاجْبُرْنِي وَارْفَعْنِي وَارْزُقْنِي وَاهْدِنِي وَعَافِنِي وَاعْفُ عَنِّي</div><div class="latin">Rabbighfirlii warhamnii wajburnii warfa'nii warzuqnii wahdinii wa 'aafinii wa'fu 'annii.</div></div>
+      <div class="doa-item"><strong>Tasyahud Awal</strong><div class="arab fs-4">التَّحِيَّاتُ لِلَّهِ وَالصَّلَوَاتُ وَالطَّيِّبَاتُ السَّلَامُ عَلَيْكَ أَيُّهَا النَّبِيُّ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ السَّلَامُ عَلَيْنَا وَعَلَى عِبَادِ اللهِ الصَّالِحِينَ أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللهِ</div></div>
+      <div class="doa-item"><strong>Salam</strong><div class="arab fs-4">السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللهِ</div><div class="latin">Assalaamu'alaikum wa rahmatullaah.</div></div>
+    </div></div>
+    <div class="col-lg-5"><div class="panel">
+      <h3>Video Gerakan Shalat</h3>
+      <div class="video-slot" data-title="Video gerakan shalat" data-src=""></div>
+      <p class="small text-secondary mt-3 mb-0">Urutan gerakan: berdiri &rarr; takbir &rarr; rukuk &rarr; i'tidal &rarr; sujud &rarr; duduk antara dua sujud &rarr; sujud kedua &rarr; tasyahud &rarr; salam.</p>
+    </div></div>
+  </div></template>
+
+<!-- ======= TEMPLATES BARU ======= -->
+<template id="tpl-tilawah"><div class="panel">
+  <h3>Video Tilawah</h3>
+  <div class="row g-4">
+    <div class="col-lg-4"><div class="sub">a. Tgk Erin ZN SQ — Ali Imran Ayat 189</div><div class="video-slot" data-title="Video contoh Tgk Erin ZN SQ, QS Ali Imran ayat 189" data-src=""></div></div>
+    <div class="col-lg-4"><div class="sub">b. QS Al-Baqarah Ayat 21</div><div class="video-slot" data-title="Video contoh QS Al-Baqarah ayat 21" data-src=""></div></div>
+    <div class="col-lg-4"><div class="sub">c. Belajar Wali Lagu Baca Quran</div><div class="video-slot" data-title="Video belajar wali lagu baca Quran" data-src=""></div></div>
+  </div>
+</div></template>
+
+<template id="tpl-syarhil1"><div class="row g-4">
+  <div class="col-lg-7"><div class="panel">
+    <h3>a. Contoh Syarhil Quran</h3>
+    <p class="mb-2"><strong>Tema :</strong> PENGUATAN PENDIDIKAN KARAKTER MENUJU JATI DIRI BANGSA YANG BERMARTABAT</p>
+    <p class="note mb-2">Kerangka syarhil (tiga pembicara dan pembaca ayat):</p>
+    <ol class="mb-0"><li>Pembukaan: salam, tahmid, shalawat dan penyampaian tema.</li><li>Pembacaan ayat (qari/qariah), dilanjutkan syarah oleh pembicara.</li><li>Pembahasan: karakter, akhlak, dan jati diri bangsa dalam pandangan Al-Qur'an.</li><li>Penutup: kesimpulan, doa, dan salam.</li></ol>
+  </div></div>
+  <div class="col-lg-5"><div class="panel"><h3>b. Video Contoh Syarhil Quran</h3><div class="video-slot" data-title="Video contoh Syarhil Quran" data-src=""></div></div></div>
+</div></template>
+
+<template id="tpl-syarhil2"><div class="row g-4">
+  <div class="col-lg-7"><div class="panel">
+    <h3>a. TEKS SYARHIL 2 (MENJEMPUT NURANI)</h3>
+    <p class="note">Teks lengkap dapat ditempel pada area ini.</p>
+    <ol class="mb-0"><li>Pembukaan dan salam</li><li>Ayat-ayat pilihan beserta artinya</li><li>Syarah / uraian tema "Menjemput Nurani"</li><li>Penutup dan doa</li></ol>
+  </div></div>
+  <div class="col-lg-5"><div class="panel"><h3>b. Video 2</h3><div class="video-slot" data-title="Video Syarhil Quran II (full)" data-src=""></div></div></div>
+</div></template>
+
+<template id="tpl-fahmil"><div class="row g-4">
+  <div class="col-lg-7"><div class="panel">
+    <h3>a. Contoh Fahmil Quran</h3>
+    <p class="mb-2"><strong>Soal Tahun :</strong> <span class="text-secondary">(ditentukan oleh guru)</span></p>
+    <p class="note mb-2">Contoh soal latihan:</p>
+    <ol class="mb-0">
+      <li>Surat apakah yang pertama kali diturunkan? <span class="note">(Al-'Alaq ayat 1-5)</span></li>
+      <li>Berapa jumlah surat dalam Al-Qur'an? <span class="note">(114 surat)</span></li>
+      <li>Surat apakah yang terpanjang? <span class="note">(Al-Baqarah)</span></li>
+      <li>Surat apakah yang terpendek? <span class="note">(Al-Kautsar)</span></li>
+    </ol>
+  </div></div>
+  <div class="col-lg-5"><div class="panel"><h3>b. Video Contoh Fahmil Quran</h3><div class="video-slot" data-title="Video contoh Fahmil Quran" data-src=""></div></div></div>
+</div></template>
+
+<template id="tpl-bahasa"><div class="panel">
+  <ul class="nav nav-pills mb-4 gap-2" role="tablist">
+    <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#bhs-arab" type="button" data-testid="tab-bahasa-arab">1. BAHASA ARAB</button></li>
+    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#bhs-inggris" type="button" data-testid="tab-bahasa-inggris">2. BAHASA INGGRIS</button></li>
+  </ul>
+  <div class="tab-content">
+  <div class="tab-pane fade show active" id="bhs-arab">
+    <div class="accordion" id="accArab">
+      <div class="accordion-item"><h4 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#ar1">MENGENAL KATA DALAM BAHASA ARAB</button></h4>
+        <div id="ar1" class="accordion-collapse collapse show" data-bs-parent="#accArab"><div class="accordion-body">
+          <div class="row g-3">
+            <div class="col-md-4"><div class="sub">a. Kata Kerja (Fi'il)</div><div class="vocab-simple" data-list="arKerja"></div></div>
+            <div class="col-md-4"><div class="sub">b. Kata Benda (Isim)</div><div class="vocab-simple" data-list="arBenda"></div></div>
+            <div class="col-md-4"><div class="sub">c. Kata Sifat</div><div class="vocab-simple" data-list="arSifat"></div></div>
+          </div></div></div></div>
+      <div class="accordion-item"><h4 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#ar2">MEMPERBANYAK HAFALAN KOSA KATA (BUKA KAMUS)</button></h4>
+        <div id="ar2" class="accordion-collapse collapse" data-bs-parent="#accArab"><div class="accordion-body">
+          <div class="sub">KAMUS PILIHAN</div>
+          <a class="res-link" href="#" data-testid="link-kamus-1"><i class="bi bi-book fs-4" style="color:var(--coral)"></i>1. Kamus Bahasa Arab 1</a>
+          <a class="res-link" href="#" data-testid="link-kamus-2"><i class="bi bi-book fs-4" style="color:var(--coral)"></i>2. Kamus Bahasa Arab 2</a>
+          <div class="sub mt-3">KAMUS SPESIAL</div>
+          <div class="row g-3">
+            <div class="col-md-4"><strong>a. Kosa Kata 1: Peralatan Rumah Tangga</strong><div class="vocab-simple mt-2" data-list="arRumahTangga"></div></div>
+            <div class="col-md-4"><strong>b. Kosa Kata 3: Nama-nama Warna</strong><div class="vocab-simple mt-2" data-list="arWarna"></div></div>
+            <div class="col-md-4"><strong>c. Kosa Kata 2: Alat-alat Menjahit</strong><div class="vocab-simple mt-2" data-list="arJahit"></div></div>
+          </div></div></div></div>
+      <div class="accordion-item"><h4 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#ar3">MEMBUAT KALIMAT DALAM BAHASA ARAB</button></h4>
+        <div id="ar3" class="accordion-collapse collapse" data-bs-parent="#accArab"><div class="accordion-body">
+          <div class="dialog"><strong>a. Dengan kata kerja</strong><div class="arab fs-4">كَتَبَ الْوَلَدُ الدَّرْسَ</div><div class="arti">Anak laki-laki itu menulis pelajaran.</div></div>
+          <div class="dialog"><strong>b. Dengan kata benda</strong><div class="arab fs-4">هٰذَا كِتَابٌ</div><div class="arti">Ini adalah sebuah buku.</div></div>
+          <div class="dialog mb-0"><strong>c. Dengan kata sifat</strong><div class="arab fs-4">الْمَسْجِدُ كَبِيرٌ</div><div class="arti">Masjid itu besar.</div></div>
+        </div></div></div>
+      <div class="accordion-item"><h4 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#ar4">BUKU MATERI BAHASA ARAB</button></h4>
+        <div id="ar4" class="accordion-collapse collapse" data-bs-parent="#accArab"><div class="accordion-body">
+          <a class="res-link" href="#" data-testid="link-buku-arab-1"><i class="bi bi-file-earmark-pdf-fill fs-4" style="color:var(--coral)"></i><span>a. Buku Dasar Bahasa Arab dari Nol<br><small class="fw-normal text-secondary">Nahwu dan Saraf, macam-macam isim, isim mu'rab, mengenal fi'il 1 dan 2, isim marfu' mansub dan majrur</small></span></a>
+          <a class="res-link" href="#" data-testid="link-buku-arab-2"><i class="bi bi-file-earmark-pdf-fill fs-4" style="color:var(--coral)"></i><span>b. Buku Dasar Bahasa Arab 1<br><small class="fw-normal text-secondary">Penulisan huruf Arab, mad thabi'i dan al, dhamir, ismun isyarah, jumlah ismiyah dan fi'liyah, pembagian fi'il, mufrad-mutsanna-jamak, maf'ul bih, memahami bacaan, ismul a'dad dan arah mata angin, penguasaan huruf Melayu</small></span></a>
+        </div></div></div>
+      <div class="accordion-item"><h4 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#ar5">MATERI PILIHAN</button></h4>
+        <div id="ar5" class="accordion-collapse collapse" data-bs-parent="#accArab"><div class="accordion-body">
+          <div class="sub">a. Belajar tentang Dhamir (Kata Ganti)</div>
+          <div class="table-responsive"><table class="table table-vocab table-sm"><thead><tr><th>Arab</th><th>Arti</th></tr></thead><tbody class="dhamir-body"></tbody></table></div>
+          <div class="sub">b. Belajar tentang Isim</div>
+          <p>Isim adalah kata benda: nama orang, tempat, benda, dan sifat. Ciri-cirinya: bertanwin, berawalan <span class="arab fs-5">ال</span>, dan dapat didahului huruf jar.</p>
+          <div class="video-slot mb-4" data-title="Video Isim (Kata Benda) dan Ciri-Cirinya" data-src=""></div>
+          <div class="sub">c. Belajar tentang Kata Kerja (Fi'il)</div>
+          <p>Fi'il terbagi tiga: <strong>Madhi</strong> (lampau), <strong>Mudhari'</strong> (sedang/akan), dan <strong>Amr</strong> (perintah).</p>
+          <div class="video-slot mb-4" data-title="Video Tanda-Tanda Fi'il Madhi, Mudhari' dan Amr" data-src=""></div>
+          <div class="sub">d. Belajar tentang Kata Benda</div>
+          <p class="mb-4">Contoh: <span class="arab fs-5">كِتَابٌ</span> (buku), <span class="arab fs-5">مَدْرَسَةٌ</span> (sekolah), <span class="arab fs-5">مَسْجِدٌ</span> (masjid).</p>
+          <div class="sub">e. Belajar tentang Kata Sifat</div>
+          <p>Kata sifat (na'at) mengikuti kata yang disifati (man'ut). Contoh: <span class="arab fs-5">كِتَابٌ جَدِيدٌ</span> (buku baru).</p>
+          <div class="video-slot" data-title="Video Na'at Man'ut (Kata Benda + Kata Sifat)" data-src=""></div>
+        </div></div></div>
+      <div class="accordion-item"><h4 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#ar6">KATA-KATA PENTING: BELAJAR PERCAKAPAN</button></h4>
+        <div id="ar6" class="accordion-collapse collapse" data-bs-parent="#accArab"><div class="accordion-body">
+          <p class="fw-bold">Percakapan Bahasa Arab untuk Pemula</p>
+          <div class="sub">#PERCAKAPAN 1: RUANG BELAJAR</div>
+          <div class="dialog"><strong>1. Percakapan di Ruang Belajar 1</strong><div class="arab fs-5">السَّلَامُ عَلَيْكُمْ — وَعَلَيْكُمُ السَّلَامُ<br>صَبَاحُ الْخَيْرِ — صَبَاحُ النُّورِ<br>مَا اسْمُكَ؟ — اِسْمِي أَحْمَدُ</div><div class="arti">Salam — Selamat pagi — Siapa namamu? Namaku Ahmad.</div></div>
+          <div class="dialog"><strong>2. Percakapan di Ruang Belajar 2</strong><div class="arab fs-5">مَا هٰذَا؟ — هٰذَا قَلَمٌ<br>هَلْ هٰذَا كِتَابٌ؟ — نَعَمْ، هٰذَا كِتَابٌ</div><div class="arti">Apa ini? Ini pena. — Apakah ini buku? Ya, ini buku.</div></div>
+          <div class="dialog"><strong>3. Percakapan di Ruang Belajar 3</strong><div class="arab fs-5">أَيْنَ الْمُدَرِّسُ؟ — هُوَ فِي الْفَصْلِ<br>اِفْتَحِ الْكِتَابَ — اُكْتُبْ الدَّرْسَ</div><div class="arti">Di mana guru? Dia di kelas. — Bukalah buku. — Tulislah pelajaran.</div></div>
+          <div class="sub mt-3">#PERCAKAPAN DI TEMPAT TERTENTU</div>
+          <div class="dialog"><strong>Percakapan 2: Di Rumah</strong><div class="arab fs-5">أَيْنَ أَبُوكَ؟ — هُوَ فِي الْغُرْفَةِ<br>أُمِّي فِي الْمَطْبَخِ</div><div class="arti">Di mana ayahmu? Dia di kamar. — Ibuku di dapur.</div></div>
+          <div class="dialog"><strong>Percakapan 3: Di Sekolah</strong><div class="arab fs-5">هَلْ أَنْتَ طَالِبٌ؟ — نَعَمْ، أَنَا طَالِبٌ<br>أَنَا ذَاهِبٌ إِلَى الْمَدْرَسَةِ</div><div class="arti">Apakah kamu pelajar? Ya, aku pelajar. — Aku pergi ke sekolah.</div></div>
+          <div class="dialog"><strong>Percakapan 4: Di Kamar Mandi</strong><div class="arab fs-5">أَيْنَ الْحَمَّامُ؟ — هُنَاكَ<br>أُرِيدُ أَنْ أَغْسِلَ يَدَيَّ</div><div class="arti">Di mana kamar mandi? Di sana. — Aku ingin mencuci tanganku.</div></div>
+          <div class="dialog"><strong>Percakapan 5: Di Pasar Buah</strong><div class="arab fs-5">بِكَمْ هٰذَا التُّفَّاحُ؟ — عَشَرَةُ دَرَاهِمَ<br>أُرِيدُ مَوْزًا</div><div class="arti">Berapa harga apel ini? Sepuluh dirham. — Aku ingin pisang.</div></div>
+          <div class="dialog mb-3"><strong>Percakapan 6: Tentang Profesi / Pekerjaan</strong><div class="arab fs-5">مَاذَا تَعْمَلُ؟ — أَنَا طَبِيبٌ<br>مُدَرِّسٌ • مُهَنْدِسٌ • فَلَّاحٌ • تَاجِرٌ</div><div class="arti">Apa pekerjaanmu? Aku dokter. — guru • insinyur • petani • pedagang.</div></div>
+          <div class="video-slot" data-title="Video percakapan bahasa Arab untuk pemula" data-src=""></div>
+        </div></div></div>
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="bhs-inggris">
+    <div class="accordion" id="accIng">
+      <div class="accordion-item"><h4 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#en1">MENGENAL KATA DALAM BAHASA INGGRIS</button></h4>
+        <div id="en1" class="accordion-collapse collapse show" data-bs-parent="#accIng"><div class="accordion-body"><div class="row g-3">
+          <div class="col-md-4"><div class="sub">a. Kata Kerja (Verb)</div><div class="vocab-simple" data-list="enKerja"></div></div>
+          <div class="col-md-4"><div class="sub">b. Kata Benda (Noun)</div><div class="vocab-simple" data-list="enBenda"></div></div>
+          <div class="col-md-4"><div class="sub">c. Kata Sifat (Adjective)</div><div class="vocab-simple" data-list="enSifat"></div></div>
+        </div></div></div></div>
+      <div class="accordion-item"><h4 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#en2">MEMPERBANYAK HAFALAN KOSA KATA (BUKA KAMUS)</button></h4>
+        <div id="en2" class="accordion-collapse collapse" data-bs-parent="#accIng"><div class="accordion-body">
+          <a class="res-link" href="#" data-testid="link-kamus-inggris"><i class="bi bi-book fs-4" style="color:var(--coral)"></i>Kamus Bahasa Inggris</a>
+          <p class="note mb-0">Tambahkan tautan kamus pada atribut <code>href</code>.</p>
+        </div></div></div>
+      <div class="accordion-item"><h4 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#en3">MEMBUAT KALIMAT DALAM BAHASA INGGRIS</button></h4>
+        <div id="en3" class="accordion-collapse collapse" data-bs-parent="#accIng"><div class="accordion-body">
+          <div class="dialog"><strong>a. Dengan kata kerja</strong><div>I <b>read</b> a book every day.</div><div class="arti">Aku membaca buku setiap hari.</div></div>
+          <div class="dialog"><strong>b. Dengan kata benda</strong><div>This is a <b>book</b>.</div><div class="arti">Ini adalah sebuah buku.</div></div>
+          <div class="dialog mb-0"><strong>c. Dengan kata sifat</strong><div>The mosque is <b>big</b>.</div><div class="arti">Masjid itu besar.</div></div>
+        </div></div></div>
+    </div>
+  </div>
+  </div>
+</div></template>
+
+<template id="tpl-bahasadasar"><div class="panel">
+  <p class="mb-3">Kosakata dasar (benda sekitar) dalam <strong>4 bahasa</strong>: Aceh, Indonesia, Arab dan Inggris.</p>
+  <div class="sub">I. INGGRIS</div>
+  <ul class="nav nav-pills mb-3 gap-2" role="tablist">
+    <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#vk-rumah" type="button">a. Benda di Rumah &amp; Sekolah</button></li>
+    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#vk-keluarga" type="button">b. Anggota Keluarga</button></li>
+    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#vk-tubuh" type="button">c. Anggota Tubuh</button></li>
+  </ul>
+  <div class="tab-content mb-3">
+    <div class="tab-pane fade show active" id="vk-rumah"><div class="table-responsive"><table class="table table-vocab"><thead><tr><th>Indonesia</th><th>Aceh</th><th>Arab</th><th>Inggris</th></tr></thead><tbody data-vocab="rumah"></tbody></table></div></div>
+    <div class="tab-pane fade" id="vk-keluarga"><div class="table-responsive"><table class="table table-vocab"><thead><tr><th>Indonesia</th><th>Aceh</th><th>Arab</th><th>Inggris</th></tr></thead><tbody data-vocab="keluarga"></tbody></table></div></div>
+    <div class="tab-pane fade" id="vk-tubuh"><div class="table-responsive"><table class="table table-vocab"><thead><tr><th>Indonesia</th><th>Aceh</th><th>Arab</th><th>Inggris</th></tr></thead><tbody data-vocab="tubuh"></tbody></table></div></div>
+  </div>
+  <p class="note">Kolom bahasa Aceh adalah contoh; mohon diverifikasi oleh guru sebelum dipakai mengajar.</p>
+  <hr>
+  <div class="sub">PRAKTIK BERBICARA BAHASA INGGRIS UNTUK ANAK-ANAK</div>
+  <div class="row g-4">
+    <div class="col-lg-6"><div class="video-slot" data-title="Video praktik berbicara bahasa Inggris untuk anak-anak" data-src=""></div></div>
+    <div class="col-lg-6"><h4 class="h6 fw-bold">100 Kalimat Bahasa Inggris untuk Anak-Anak (contoh)</h4><ol class="kalimat-list small mb-0" style="max-height:260px;overflow:auto"></ol></div>
+  </div>
+</div></template>
+
+<template id="tpl-menggambar"><div class="panel">
+  <div class="sub">-2. MENGGAMBAR</div>
+  <div class="row g-4">
+    <div class="col-lg-6"><h4 class="h6 fw-bold">a. Cara Menggambar dari Dasar</h4>
+      <ul><li>Mulai dari bentuk dasar: lingkaran, segitiga, persegi.</li><li>Gabungkan bentuk menjadi benda.</li><li>Tebalkan garis akhir, hapus garis bantu.</li></ul>
+      <div class="video-slot" data-title="Video cara menggambar dari dasar" data-src=""></div></div>
+    <div class="col-lg-6"><h4 class="h6 fw-bold">b. Cara Menggambar Lanjutan</h4>
+      <ul><li>Perhatikan perbandingan ukuran benda.</li><li>Tambahkan detail dan latar.</li><li>Latih arsiran untuk bayangan.</li></ul>
+      <div class="video-slot" data-title="Video cara menggambar lanjutan" data-src=""></div></div>
+  </div>
+</div></template>
+
+<template id="tpl-khutbah"><div class="row g-4">
+  <div class="col-lg-7"><div class="panel">
+    <h3>a. Contoh Khutbah</h3>
+    <p class="mb-2"><strong>Judul :</strong> <span class="text-secondary">(ditentukan oleh guru)</span></p>
+    <p class="note mb-2">Pembukaan khutbah (khutbatul hajah):</p>
+    <div class="arab fs-4">إِنَّ الْحَمْدَ لِلَّهِ نَحْمَدُهُ وَنَسْتَعِينُهُ وَنَسْتَغْفِرُهُ</div>
+    <p class="note mt-3 mb-2">Susunan khutbah:</p>
+    <ol class="mb-0"><li>Hamdalah dan shalawat kepada Nabi Muhammad SAW.</li><li>Wasiat takwa.</li><li>Isi khutbah (tema/judul beserta dalil Al-Qur'an dan hadis).</li><li>Doa untuk kaum muslimin dan penutup.</li></ol>
+  </div></div>
+  <div class="col-lg-5"><div class="panel"><h3>b. Video Contoh Khutbah</h3><div class="video-slot" data-title="Video contoh khutbah" data-src=""></div></div></div>
+</div></template>
+
+<template id="tpl-debat"><div class="panel">
+  <p class="mb-3">Debat dalam empat bahasa: <strong>Arab, Inggris, Indonesia dan Aceh</strong>.</p>
+  <ul class="nav nav-pills mb-3 gap-2" role="tablist">
+    <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#db-arab" type="button">Arab</button></li>
+    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#db-ing" type="button">Inggris</button></li>
+    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#db-indo" type="button">Indonesia</button></li>
+    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#db-aceh" type="button">Aceh</button></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane fade show active" id="db-arab"><div class="row g-4"><div class="col-lg-7">
+      <div class="dialog"><span class="arab fs-5">أَتَّفِقُ مَعَكَ</span><div class="arti">Saya setuju denganmu.</div></div>
+      <div class="dialog"><span class="arab fs-5">لَا أَتَّفِقُ مَعَكَ لِأَنَّ...</span><div class="arti">Saya tidak setuju karena...</div></div>
+      <div class="dialog"><span class="arab fs-5">فِي رَأْيِي...</span><div class="arti">Menurut pendapat saya...</div></div></div>
+      <div class="col-lg-5"><div class="video-slot" data-title="Video debat bahasa Arab" data-src=""></div></div></div></div>
+    <div class="tab-pane fade" id="db-ing"><div class="row g-4"><div class="col-lg-7">
+      <div class="dialog">I agree with you.</div><div class="dialog">I disagree because...</div><div class="dialog">In my opinion, ...</div><div class="dialog">Let me respond to your point.</div></div>
+      <div class="col-lg-5"><div class="video-slot" data-title="Video debat bahasa Inggris" data-src=""></div></div></div></div>
+    <div class="tab-pane fade" id="db-indo"><div class="row g-4"><div class="col-lg-7">
+      <div class="dialog">Saya setuju dengan pendapat Anda.</div><div class="dialog">Saya tidak setuju karena...</div><div class="dialog">Menurut pendapat saya, ...</div><div class="dialog">Izinkan saya menanggapi pernyataan tim lawan.</div></div>
+      <div class="col-lg-5"><div class="video-slot" data-title="Video debat bahasa Indonesia" data-src=""></div></div></div></div>
+    <div class="tab-pane fade" id="db-aceh"><div class="row g-4"><div class="col-lg-7">
+      <div class="dialog">Lon seutuju ngon droeneuh. <span class="arti">(Saya setuju dengan Anda.)</span></div>
+      <p class="note">Ungkapan bahasa Aceh adalah contoh; mohon diverifikasi guru dan ditambahkan sesuai kebutuhan.</p></div>
+      <div class="col-lg-5"><div class="video-slot" data-title="Video debat bahasa Aceh" data-src=""></div></div></div></div>
+  </div>
+</div></template>
+
+<template id="tpl-mc"><div class="row g-4">
+  <div class="col-lg-7"><div class="panel">
+    <h3>Teks MC 3 Bahasa</h3>
+    <div class="sub">1. Teks MC 3 Bahasa Belajar</div>
+    <div class="dialog"><strong>Indonesia:</strong> Assalamu'alaikum warahmatullahi wabarakatuh. Hadirin yang kami muliakan, selamat datang di acara kita pada hari ini.</div>
+    <div class="dialog"><strong>English:</strong> Assalamu'alaikum warahmatullahi wabarakatuh. Distinguished guests, welcome to our event today.</div>
+    <div class="dialog"><strong>العربية:</strong> <span class="arab fs-5">السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ، أَهْلًا وَسَهْلًا بِكُمْ فِي حَفْلِنَا الْيَوْمَ</span></div>
+    <div class="sub mt-2">2. Teks 2 MC 3 Bahasa</div>
+    <p class="note mb-0">Teks lengkap dapat ditambahkan pada area ini.</p>
+    <div class="sub mt-3">Acara Umum dan Teks</div>
+    <ol class="mb-0"><li>Pembukaan</li><li>Pembacaan ayat suci Al-Qur'an</li><li>Sambutan-sambutan</li><li>Acara inti</li><li>Doa dan penutup</li></ol>
+  </div></div>
+  <div class="col-lg-5"><div class="panel">
+    <h3>Video MC 3 Bahasa</h3>
+    <div class="sub">3. Video MC 3 Bahasa</div><div class="video-slot" data-title="Video MC 3 bahasa (1)" data-src=""></div>
+    <div class="sub mt-3">4. Video MC 3 Bahasa</div><div class="video-slot" data-title="Video MC 3 bahasa (2)" data-src=""></div>
+  </div></div>
+</div></template>
+
+<template id="tpl-pidato"><div class="row g-4">
+  <div class="col-lg-7"><div class="panel">
+    <h3>Pidato Perkembangan Zaman</h3>
+    <p class="note mb-2">Struktur pidato analitis:</p>
+    <ol><li><strong>Pembukaan:</strong> salam dan sapaan hadirin.</li><li><strong>Latar masalah:</strong> perkembangan teknologi dan pergaulan generasi muda.</li><li><strong>Analisis:</strong> dampak positif dan negatif, penyebab, data pendukung.</li><li><strong>Solusi:</strong> penguatan iman, literasi digital, dan akhlak.</li><li><strong>Penutup:</strong> ajakan dan salam.</li></ol>
+    <div class="dialog mb-0">"Hadirin yang saya hormati, zaman terus berkembang. Tugas kita bukan menolak perubahan, melainkan menyiapkan diri agar tetap berpegang pada nilai-nilai kebaikan."</div>
+  </div></div>
+  <div class="col-lg-5"><div class="panel"><h3>Video Contoh Pidato</h3><div class="video-slot" data-title="Video pidato perkembangan zaman" data-src=""></div></div></div>
+</div></template>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+$(function () {
+  var PAGES = ['beranda', 'tk', 'smp', 'sma', 'about'];
+
+  // ---------- Render section dari template ----------
+  $('section[data-tpl]').each(function () {
+    var $s = $(this), page = $s.closest('.page').attr('id'), num = $s.data('num');
+    $s.attr({ id: page + '-m' + num, 'data-testid': 'section-' + page + '-' + num }).addClass('materi');
+    $s.append('<div class="d-flex align-items-center gap-3 mb-4"><span class="num">' + num + '</span><h2>' + $s.data('title') + '</h2></div>');
+    $s.append(document.getElementById('tpl-' + $s.data('tpl')).content.cloneNode(true));
+  });
+
+  // ---------- Isi pilihan select + jumlah materi ----------
+  $('.page').each(function () {
+    var $p = $(this), $sel = $p.find('.materi-select'), $secs = $p.find('section.materi');
+    if (!$sel.length) return;
+    $sel.append('<option value="" selected disabled>-- Pilih salah satu materi --</option>');
+    $secs.each(function () {
+      var $s = $(this);
+      $sel.append($('<option>').val($s.attr('id')).text($s.data('num') + '. ' + ($s.data('label') || $s.data('title'))));
+    });
+    $('[data-count="' + $p.attr('id') + '"]').text($secs.length);
+  });
+
+  // ---------- Data kosakata ----------
+  var VOCAB = {
+    rumah: [['Rumah','Rumoh','بَيْت','House'],['Pintu','Pinto','بَاب','Door'],['Jendela','Jeunéla','نَافِذَة','Window'],['Meja','Meja','طَاوِلَة','Table'],['Kursi','Kurusi','كُرْسِيّ','Chair'],['Tempat tidur','Teumpat tidoe','سَرِير','Bed'],['Lampu','Lampu','مِصْبَاح','Lamp'],['Buku','Buku','كِتَاب','Book'],['Pena','Pen','قَلَم','Pen'],['Tas','Tah','حَقِيبَة','Bag'],['Papan tulis','Papeuen tuléh','سَبُّورَة','Whiteboard'],['Air','Ie','مَاء','Water']],
+    keluarga: [['Ayah','Ayah / Abu','أَب','Father'],['Ibu','Mak','أُمّ','Mother'],['Kakak laki-laki','Abang','أَخ','Brother'],['Kakak perempuan','Kakak','أُخْت','Sister'],['Kakek','Aki / Nék','جَدّ','Grandfather'],['Nenek','Nék','جَدَّة','Grandmother'],['Paman','Pakcik','عَمّ','Uncle'],['Bibi','Makcik','عَمَّة','Aunt']],
+    tubuh: [['Kepala','Ulèë','رَأْس','Head'],['Rambut','Ôk','شَعْر','Hair'],['Mata','Mata','عَيْن','Eye'],['Hidung','Idông','أَنْف','Nose'],['Mulut','Babah','فَم','Mouth'],['Telinga','Teuleunga','أُذُن','Ear'],['Gigi','Gigoe','سِنّ','Tooth'],['Tangan','Jaroe','يَد','Hand'],['Kaki','Gaki','رِجْل','Foot'],['Perut','Prôt','بَطْن','Stomach']]
+  };
+  $('[data-vocab]').each(function () {
+    var h = '';
+    $.each(VOCAB[$(this).data('vocab')], function (i, r) {
+      h += '<tr><td>' + r[0] + '</td><td>' + r[1] + '</td><td class="arab fs-5" style="line-height:1.6">' + r[2] + '</td><td>' + r[3] + '</td></tr>';
+    });
+    $(this).html(h);
+  });
+
+  var SIMPLE = {
+    arKerja: [['ذَهَبَ','pergi'],['كَتَبَ','menulis'],['قَرَأَ','membaca'],['أَكَلَ','makan'],['شَرِبَ','minum'],['جَلَسَ','duduk'],['نَامَ','tidur']],
+    arBenda: [['كِتَاب','buku'],['قَلَم','pena'],['مَدْرَسَة','sekolah'],['مَسْجِد','masjid'],['وَلَد','anak laki-laki'],['بِنْت','anak perempuan']],
+    arSifat: [['كَبِير','besar'],['صَغِير','kecil'],['جَمِيل','indah'],['جَدِيد','baru'],['طَوِيل','tinggi'],['قَصِير','pendek']],
+    arRumahTangga: [['مِلْعَقَة','sendok'],['شَوْكَة','garpu'],['سِكِّين','pisau'],['صَحْن','piring'],['كُوب','gelas'],['قِدْر','panci']],
+    arWarna: [['أَحْمَر','merah'],['أَزْرَق','biru'],['أَخْضَر','hijau'],['أَصْفَر','kuning'],['أَبْيَض','putih'],['أَسْوَد','hitam']],
+    arJahit: [['إِبْرَة','jarum'],['خَيْط','benang'],['مِقَصّ','gunting'],['دَبُّوس','peniti'],['آلَةُ الْخِيَاطَة','mesin jahit']],
+    enKerja: [['go','pergi'],['eat','makan'],['drink','minum'],['read','membaca'],['write','menulis'],['sleep','tidur'],['play','bermain']],
+    enBenda: [['book','buku'],['pen','pena'],['school','sekolah'],['mosque','masjid'],['boy','anak laki-laki'],['girl','anak perempuan']],
+    enSifat: [['big','besar'],['small','kecil'],['beautiful','indah'],['new','baru'],['tall','tinggi'],['short','pendek']]
+  };
+  $('.vocab-simple').each(function () {
+    var key = $(this).data('list'), isAr = key.indexOf('ar') === 0, h = '<ul class="list-unstyled mb-0">';
+    $.each(SIMPLE[key], function (i, r) {
+      h += '<li class="d-flex justify-content-between border-bottom py-1"><span' + (isAr ? ' class="arab fs-5" style="line-height:1.8"' : ' class="fw-bold"') + '>' + r[0] + '</span><span class="arti">' + r[1] + '</span></li>';
+    });
+    $(this).html(h + '</ul>');
+  });
+
+  var DHAMIR = [['أَنَا','aku'],['نَحْنُ','kami / kita'],['أَنْتَ','kamu (laki-laki)'],['أَنْتِ','kamu (perempuan)'],['أَنْتُمَا','kalian berdua'],['أَنْتُمْ','kalian (laki-laki)'],['أَنْتُنَّ','kalian (perempuan)'],['هُوَ','dia (laki-laki)'],['هِيَ','dia (perempuan)'],['هُمَا','mereka berdua'],['هُمْ','mereka (laki-laki)'],['هُنَّ','mereka (perempuan)']];
+  var dh = ''; $.each(DHAMIR, function (i, r) { dh += '<tr><td class="arab fs-5" style="line-height:1.6">' + r[0] + '</td><td>' + r[1] + '</td></tr>'; });
+  $('.dhamir-body').html(dh);
+
+  var KALIMAT = [['Good morning.','Selamat pagi.'],['How are you?','Apa kabar?'],['I am fine, thank you.','Saya baik, terima kasih.'],['What is your name?','Siapa namamu?'],['My name is Ahmad.','Namaku Ahmad.'],['Nice to meet you.','Senang bertemu denganmu.'],['How old are you?','Berapa umurmu?'],['I am eight years old.','Aku berumur delapan tahun.'],['Where do you live?','Di mana kamu tinggal?'],['I live in Aceh.','Aku tinggal di Aceh.'],['This is my book.','Ini bukuku.'],['That is a chair.','Itu sebuah kursi.'],['I love my mother.','Aku sayang ibuku.'],['My father is kind.','Ayahku baik hati.'],['I have a sister.','Aku punya seorang saudari.'],['Please sit down.','Silakan duduk.'],['Open your book.','Bukalah bukumu.'],['Thank you very much.','Terima kasih banyak.'],['You are welcome.','Sama-sama.'],['May I go to the toilet?','Bolehkah saya ke toilet?'],['I want to drink water.','Aku ingin minum air.'],['I am hungry.','Aku lapar.'],['Let us pray together.','Mari kita berdoa bersama.'],['See you tomorrow.','Sampai jumpa besok.']];
+  var kl = ''; $.each(KALIMAT, function (i, r) { kl += '<li><strong>' + r[0] + '</strong> <span class="text-secondary">— ' + r[1] + '</span></li>'; });
+  $('.kalimat-list').html(kl);
+
+  // ---------- Daftar Juz Amma ----------
+  var juz = [['An-Naba\'',40],['An-Nazi\'at',46],['\'Abasa',42],['At-Takwir',29],['Al-Infithar',19],['Al-Muthaffifin',36],['Al-Insyiqaq',25],['Al-Buruj',22],['Ath-Thariq',17],['Al-A\'la',19],['Al-Ghasyiyah',26],['Al-Fajr',30],['Al-Balad',20],['Asy-Syams',15],['Al-Lail',21],['Adh-Dhuha',11],['Asy-Syarh',8],['At-Tin',8],['Al-\'Alaq',19],['Al-Qadr',5],['Al-Bayyinah',8],['Az-Zalzalah',8],['Al-\'Adiyat',11],['Al-Qari\'ah',11],['At-Takatsur',8],['Al-\'Ashr',3],['Al-Humazah',9],['Al-Fil',5],['Quraisy',4],['Al-Ma\'un',7],['Al-Kautsar',3],['Al-Kafirun',6],['An-Nashr',3],['Al-Lahab',5],['Al-Ikhlash',4],['Al-Falaq',5],['An-Nas',6]];
+  var jh = '';
+  $.each(juz, function (i, s) { jh += '<div class="col"><div class="py-1 border-bottom"><strong>' + (78 + i) + '. ' + s[0] + '</strong> <span class="text-secondary">(' + s[1] + ' ayat)</span></div></div>'; });
+  $('.juz-list').html(jh);
+
+  // ---------- Slot video ----------
+  $('.video-slot').each(function () {
+    var $s = $(this), src = $.trim($s.data('src')), title = $s.data('title');
+    if (src) $s.addClass('filled').html('<iframe src="' + src + '" title="' + title + '" allowfullscreen loading="lazy"></iframe>');
+    else $s.html('<div><i class="bi bi-play-circle-fill fs-1" style="color:var(--coral)"></i><div class="fw-bold">' + title + '</div><small>Video akan ditampilkan di sini</small></div>');
+  });
+
+  // ---------- Navbar & router ----------
+  function navH() { return $('#mainNav').outerHeight(); }
+  function setNavH() {
+    var h = navH();
+    document.documentElement.style.setProperty('--nav-h', h + 'px');
+    $('.picker').css('top', h + 'px');
+  }
+  setNavH();
+  $(window).on('resize', setNavH);
+
+  function showPage(name) {
+    if ($.inArray(name, PAGES) < 0) name = 'beranda';
+    $('.page').removeClass('active');
+    var $p = $('#' + name).addClass('active');
+    $('#mainNav .nav-link').removeClass('active').filter('[data-page="' + name + '"]').addClass('active');
+    $p.find('.materi-select').val('');
+    document.title = $p.data('title') + ' | Belajar Ananda';
+    window.scrollTo(0, 0);
+    var el = document.getElementById('navMenu');
+    if ($(el).hasClass('show')) bootstrap.Collapse.getOrCreateInstance(el).hide();
+  }
+  $(document).on('click', '[data-page]', function (e) {
+    e.preventDefault();
+    var p = $(this).data('page');
+    if (location.hash === '#' + p) showPage(p); else location.hash = p;
+  });
+  $(window).on('hashchange', function () { showPage(location.hash.slice(1)); });
+  showPage(location.hash.slice(1));
+
+  // ---------- Pilih materi -> scroll ----------
+  $(document).on('change', '.materi-select', function () {
+    var $t = $('#' + $(this).val());
+    if (!$t.length) return;
+    var offset = navH() + $(this).closest('.picker').outerHeight() + 8;
+    $('html, body').stop().animate({ scrollTop: $t.offset().top - offset }, 700);
+  });
+
+  // ---------- Kembali ke atas ----------
+  $(window).on('scroll', function () { $('#backTop').toggle($(this).scrollTop() > 400); });
+  $('#backTop').on('click', function () {
+    $('html, body').animate({ scrollTop: 0 }, 500);
+    $('.materi-select').val('');
+  });
+});
+</script>
+</body>
 </html>
